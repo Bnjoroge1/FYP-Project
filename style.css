@@ -1,0 +1,38 @@
+.fyp {
+    padding: 12px;
+    padding-left: 50px;
+}
+
+.sem {
+    height: 450px;
+    padding: 10px;
+}
+
+.card-footer {
+    position: absolute;
+    bottom: 0px;
+}
+
+.drag {
+    height: 55px;
+    font-size: 12px;
+}
+
+.card-content {
+    padding-top: 10px !important;
+}
+
+.card-footer-padding {
+    padding: 10px;
+}
+
+.delete {
+    display: none !important;
+    float: right;
+    margin-top: 3px !important;
+    margin-right: 3px !important;
+}
+
+.card:hover .delete { 
+    display: block !important; 
+}
