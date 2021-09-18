@@ -1,7 +1,7 @@
 import os
 import sys
 
-from raygun4py.middleware import flask as flask_raygun
+#from raygun4py.middleware import flask as flask_raygun
 
 PYTHON_VERSION = sys.version_info[0]
 if PYTHON_VERSION == 3:
