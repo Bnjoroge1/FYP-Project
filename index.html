@@ -8,11 +8,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <script src="https://unpkg.com/konva@8/konva.min.js"></script>
 </head>
 
 <body>
+    <style>
+        .box {
+            height: 450px;
+        }
+    </style>
+
+    <div class="container" style="overflow: scroll;">
+        <br><br><br>
+        <div class="columns is-vcentered">
+            <div class="column">
+                <h4 class="title is-4">Freshman</h4>
+                <div class="box" id="fall1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div class="box" id="spring1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            </div>
+            <div class="column">
+                <h4 class="title is-4">Sophomore</h4>
+                <div class="box" id="fall2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div class="box" id="spring2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            </div>
+            <div class="column">
+                <h4 class="title is-4">Junior</h4>
+                <div class="box" id="fall3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div class="box" id="spring3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            </div>
+            <div class="column">
+                <h4 class="title is-4">Senior</h4>
+                <div class="box" id="fall4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div class="box" id="spring4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            </div>
+        </div>
+        <button class="button is-info">Info</button>
+    </div>
+
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+    </script>
+
+    <img id="drag1"
+        src="https://cdn.britannica.com/q:60/91/181391-050-1DA18304/cat-toes-paw-number-paws-tiger-tabby.jpg"
+        draggable="true" ondragstart="drag(event)" width="75">
 
 </body>
 
