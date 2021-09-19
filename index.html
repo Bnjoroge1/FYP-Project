@@ -36,106 +36,74 @@
         <div class="columns is-vcentered">
             <div class="column">
                 <h4 class="title is-4">Freshman</h4>
-                <div class="card sem" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <h5 class="subtitle is-5">Fall</h5>
+                <div class="card sem" ondrop="drop(event, fall1)" ondragover="allowDrop(event)">
                     <div id="fall1"></div>
                     <footer class="card-footer card-footer-padding">
-                        <p class="credits">* credits</p>
+                        <p class="credits" id="cfall1">0 credits</p>
                     </footer>
                 </div><br>
-                <div class="card sem" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <h5 class="subtitle is-5">Spring</h5>
+                <div class="card sem" ondrop="drop(event, spring1)" ondragover="allowDrop(event)">
                     <div id="spring1"></div>
                     <footer class="card-footer card-footer-padding">
-                        <p class="credits">* credits</p>
+                        <p class="credits" id="cspring1">0 credits</p>
                     </footer>
                 </div>
             </div>
             <div class="column">
                 <h4 class="title is-4">Sophomore</h4>
-                <div class="card sem" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <h5 class="subtitle is-5">Fall</h5>
+                <div class="card sem" ondrop="drop(event, fall2)" ondragover="allowDrop(event)">
                     <div id="fall2"></div>
                     <footer class="card-footer card-footer-padding">
-                        <p class="credits">* credits</p>
+                        <p class="credits" id="cfall2">0 credits</p>
                     </footer>
                 </div><br>
-                <div class="card sem" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <h5 class="subtitle is-5">Spring</h5>
+                <div class="card sem" ondrop="drop(event, spring2)" ondragover="allowDrop(event)">
                     <div id="spring2"></div>
                     <footer class="card-footer card-footer-padding">
-                        <p class="credits">* credits</p>
+                        <p class="credits" id="cspring2">0 credits</p>
                     </footer>
                 </div>
             </div>
             <div class="column">
                 <h4 class="title is-4">Junior</h4>
-                <div class="card sem" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <h5 class="subtitle is-5">Fall</h5>
+                <div class="card sem" ondrop="drop(event, fall3)" ondragover="allowDrop(event)">
                     <div id="fall3"></div>
                     <footer class="card-footer card-footer-padding">
-                        <p class="credits">* credits</p>
+                        <p class="credits" id="cfall3">0 credits</p>
                     </footer>
                 </div><br>
-                <div class="card sem" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <h5 class="subtitle is-5">Spring</h5>
+                <div class="card sem" ondrop="drop(event, spring3)" ondragover="allowDrop(event)">
                     <div id="spring3"></div>
                     <footer class="card-footer card-footer-padding">
-                        <p class="credits">* credits</p>
+                        <p class="credits" id="cspring3">0 credits</p>
                     </footer>
                 </div>
             </div>
             <div class="column">
                 <h4 class="title is-4">Senior</h4>
-                <div class="card sem" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <h5 class="subtitle is-5">Fall</h5>
+                <div class="card sem" ondrop="drop(event, fall4)" ondragover="allowDrop(event)">
                     <div id="fall4"></div>
                     <footer class="card-footer card-footer-padding">
-                        <p class="credits">* credits</p>
+                        <p class="credits" id="cfall4">0 credits</p>
                     </footer>
                 </div><br>
-                <div class="card sem" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <h5 class="subtitle is-5">Spring</h5>
+                <div class="card sem" ondrop="drop(event, spring4)" ondragover="allowDrop(event)">
                     <div id="spring4"></div>
                     <footer class="card-footer card-footer-padding">
-                        <p class="credits">* credits</p>
+                        <p class="credits" id="cspring4">0 credits</p>
                     </footer>
                 </div>
             </div>
         </div>
         <button class="button is-info" style="float: right;"><strong>What If?</strong></button><br><br><br>
-    </div>
-
-    <div class="card drag" id="drag1" draggable="true" ondragstart="drag(event)" onclick="color();">
-        <button class="delete is-small" id="delete1" onclick="deleteCourse(1);"></button>
-        <div class="card-content">
-            course code<br>
-            course title (credits)
-        </div>
-    </div>
-
-    <div class="card drag" id="drag2" draggable="true" ondragstart="drag(event)">
-        <button class="delete is-small" id="delete2" onclick="deleteCourse(2);"></button>
-        <div class="card-content">
-            course code<br>
-            course title (credits)
-        </div>
-    </div>
-
-    <div class="card drag" id="drag3" draggable="true" ondragstart="drag(event)">
-        <button class="delete is-small" id="delete3" onclick="deleteCourse(3);"></button>
-        <div class="card-content">
-            course code<br>
-            course title (credits)
-        </div>
-    </div>
-
-    <div class="card drag" id="drag4" draggable="true" ondragstart="drag(event)">
-        <button class="delete is-small" id="delete4" onclick="deleteCourse(4);"></button>
-        <div class="card-content">
-            course code<br>
-            course title (credits)
-        </div>
-    </div>
-
-    <div class="card drag" id="drag5" draggable="true" ondragstart="drag(event)">
-        <button class="delete is-small" id="delete5" onclick="deleteCourse(5);"></button>
-        <div class="card-content">
-            course code<br>
-            course title (credits)
-        </div>
     </div>
 
     <script>

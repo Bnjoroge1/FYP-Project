@@ -1,11 +1,16 @@
+body {
+    background-color: #EEF6FE; /* #E2F0FF; */
+}
+
 .fyp {
     padding: 12px;
     padding-left: 50px;
 }
 
 #searchbar {
-    width: 500px !important;
+    width: 750px !important;
     padding: 10px;
+    padding-left: 150px;
 }
 
 .sem {

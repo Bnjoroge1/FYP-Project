@@ -4,64 +4,99 @@ function allowDrop(ev) {
 
 function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
+
+    // use parent to get div id
+    var id = $(this).closest('div.pane').attr('id');
+    console.log(id);
+    // use div id to identify corresponding array
+    // for (let i = 0; i < sem.length; i++) {
+    //     if (sem[i].code == ev.target.id) {
+    //         sem.pop(sem[i]);
+    //     }
+    // }
 }
 
-function drop(ev) {
+function drop(ev, sem) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
+    console.log("data :" + data);
     ev.target.appendChild(document.getElementById(data));
 
+    for (let i = 0; i < 8; i++) {
+        for (let j = 0; j < sem.length; j++) {
+            if (sem[i].code == ev.target.id) {
+                sem.pop(sem[i]);
+            }
+        }
+    }
+
+    // switch(sem) {
+    //     case("fall1") : fall1.push(data); break;
+    //     case("spring1") : spring1.push(data); break;
+    //     case("fall2") : fall2.push(data); break;
+    //     case("spring2") : spring2.push(data); break;
+    //     case("fall3") : fall3.push(data); break;
+    //     case("spring3") : spring3.push(data); break;
+    //     case("fall4") : fall4.push(data); break;
+    //     case("spring4") : spring4.push(data); break;
+    // }
+
+    // console.log(fall1);
+    // console.log(fall2);
     // move course to dictionary object respective to semester
     // add to new object, remove from old object
     // calculate semester's new credit total
     // if semester's new credit total > allowance based on ksas / wse, display warning
 }
 
-let fall1 = {};
-let spring1 = {};
-let fall2 = {};
-let spring2 = {};
-let fall3 = {};
-let spring3 = {};
-let fall4 = {};
-let spring4 = {};
+let fall1 = [];
+let spring1 = [];
+let fall2 = [];
+let spring2 = [];
+let fall3 = [];
+let spring3 = [];
+let fall4 = [];
+let spring4 = [];
 
-// document.getElementById("fall + ").innerHTML =
-        //     `<div class="card drag" id="drag6" draggable="true" ondragstart="drag(event)">
-        //         <button class="delete is-small" id="delete6" onclick="deleteCourse(6);"></button>
-        //         <div class="card-content">
-        //             course code<br>
-        //             course title (credits)
-        //         </div>
-        //     </div>`;
-
-// if last 3 digits of code is 100 -> freshman fall; 200 -> sophomore fall, etc
-    // add course to appropriate object
-    // calculate semester's new credit total & total credit total
+// calculate semester's new credit total & total credit total
 // assigns color based on areas, also checks major req based on areas
-
-// onclick="addCourse(val.OfferingName, val.Title, val.Credits);"
 
 function addCourse(code, title, credits, areas) {
     let digit = parseInt(code.substring(code.length - 3));
-    let year = 0;
+
+    let obj;
+    let year;
+    let sem;
+
     if (digit < 200) {
         // freshman
         year = 1;
+        obj = {"code" : code, "title" : title, "credits" : credits, "areas" : areas, "sem" : "fall1"};
+        fall1.push(obj);
+        document.getElementById("cfall1").innerHTML = calculateCredits(fall1) + " credits";
     } else if (digit < 300) {
         // sophomore
         year = 2;
+        obj = {"code" : code, "title" : title, "credits" : credits, "areas" : areas, "sem" : "fall2"};
+        fall2.push(obj);
+        document.getElementById("cfall2").innerHTML = calculateCredits(fall2) + " credits";
     } else if (digit < 400) {
         // junior
         year = 3;
+        obj = {"code" : code, "title" : title, "credits" : credits, "areas" : areas, "sem" : "fall3"};
+        fall3.push(obj);
+        document.getElementById("cfall3").innerHTML = calculateCredits(fall3) + " credits";
     } else {
         // senior
         year = 4;
+        obj = {"code" : code, "title" : title, "credits" : credits, "areas" : areas, "sem" : "fall4"};
+        fall4.push(obj);
+        document.getElementById("cfall4").innerHTML = calculateCredits(fall4) + " credits";
     }
 
     document.getElementById("fall" + year).innerHTML +=
             `<div class="card drag" id="${code}" draggable="true" ondragstart="drag(event)">
-                <button class="delete is-small" id="${code}" onclick="deleteCourse(${code});"></button>
+                <button class="delete is-small" onclick="deleteCourse(${code});" style="display: none;"></button>
                 <div class="card-content">
                     ${code}<br>
                     ${title} (${credits})
@@ -73,8 +108,20 @@ function addCourse(code, title, credits, areas) {
     document.getElementById("txt-search").value = '';
 }
 
+function calculateCredits(sem) {
+    let sum = 0;
+    for (i = 0; i < sem.length; i++) {
+        sum += parseInt(sem[i].credits);
+    }
+    return sum;
+}
+
 function color(areas) {
-    // stored as "EN"
+    const array = [];
+    for (let i=0; i < areas.length; i++){
+       array.push(areas.charAt(i));
+    }
+    
     let r = 0;
     let g = 0;
     let b = 0;
@@ -140,4 +187,7 @@ function color(areas) {
 
 function deleteCourse(id) {
     document.getElementById(id).style.display = "none";
+
+    // remove from respective array
+    // recalculate credits
 }
