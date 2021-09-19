@@ -68,6 +68,8 @@ function addCourse(code, title, credits, areas) {
     let year;
     let sem;
 
+    let codeid = code.substring(0, 2) + code.substring(3, 6) + code.substring(7);
+
     if (digit < 200) {
         // freshman
         year = 1;
@@ -95,15 +97,15 @@ function addCourse(code, title, credits, areas) {
     }
 
     document.getElementById("fall" + year).innerHTML +=
-            `<div class="card drag" id="${code}" draggable="true" ondragstart="drag(event)">
-                <button class="delete is-small" onclick="deleteCourse(${code});" style="display: none;"></button>
+            `<div class="card drag" id="${codeid}" draggable="true" ondragstart="drag(event)">
+                <button class="delete is-small" onclick="deleteCourse(\'${codeid}\');" style="display: none;"></button>
                 <div class="card-content">
                     ${code}<br>
                     ${title} (${credits})
                 </div>
             </div>`;
     
-    document.getElementById(code).style.backgroundColor = color(areas);
+    document.getElementById(codeid).style.backgroundColor = color(areas);
     document.getElementById("filter-records").innerHTML = '';
     document.getElementById("txt-search").value = '';
 }
@@ -186,8 +188,16 @@ function color(areas) {
 }
 
 function deleteCourse(id) {
+    console.log(id);
     document.getElementById(id).style.display = "none";
 
     // remove from respective array
     // recalculate credits
+}
+
+function getCreditsTotal() {
+    let sum = 0;
+    sum += calculateCredits(fall1) + calculateCredits(spring1) + calculateCredits(fall2) + calculateCredits(spring2) + 
+      calculateCredits(fall3) + calculateCredits(spring3) + calculateCredits(fall4) + calculateCredits(fall4);
+    return sum;
 }

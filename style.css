@@ -46,3 +46,8 @@ body {
 .card:hover .delete { 
     display: block !important; 
 }
+
+.card .drag .corecs {
+    background-color: #2374C7;
+    color: white;
+}
