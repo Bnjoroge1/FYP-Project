@@ -163,7 +163,7 @@
                     code = val.OfferingName;
                     code = code.substring(0, 2) + code.substring(3, 6) + code.substring(7);
                     
-                    output += '<h5 class="title is-6" onclick="addCourse(\'' + val.OfferingName + '\',\'' + val.Title + '\',\'' + val.Credits + '\');">' + val.OfferingName + '</h5>';
+                    output += '<h5 class="title is-6" onclick="addCourse(\'' + val.OfferingName + '\',\'' + val.Title + '\',\'' + val.Credits + '\',\'' + val.Areas + '\');">' + val.OfferingName + '</h5>';
                     output += '<p class=\"subtitle is-6\">' + val.Title + " (" + val.Credits + ")" + '</p>';
                 }
             });

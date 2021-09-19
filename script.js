@@ -42,7 +42,7 @@ let spring4 = {};
 
 // onclick="addCourse(val.OfferingName, val.Title, val.Credits);"
 
-function addCourse(code, title, credits) {
+function addCourse(code, title, credits, areas) {
     let digit = parseInt(code.substring(code.length - 3));
     let year = 0;
     if (digit < 200) {
@@ -67,11 +67,12 @@ function addCourse(code, title, credits) {
                     ${title} (${credits})
                 </div>
             </div>`;
+    
+    document.getElementById(code).style.backgroundColor = color(areas);
 }
 
-function color() {
+function color(areas) {
     // stored as "EN"
-    let areas = ['Q', 'N'];
     let r = 0;
     let g = 0;
     let b = 0;
@@ -131,7 +132,8 @@ function color() {
         }
     }
 
-    document.getElementById("drag1").style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+    let color = "rgb(" + r + "," + g + "," + b + ")";
+    return color;
 }
 
 function deleteCourse(id) {
