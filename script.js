@@ -72,6 +72,11 @@ function addCourse(code, title, credits, areas) {
 }
 
 function color(areas) {
+    const array = [];
+    for (int i=0; i < areas.length(); i++){
+       array.push(areas.charAt(i));
+    }
+    
     // stored as "EN"
     let r = 0;
     let g = 0;
