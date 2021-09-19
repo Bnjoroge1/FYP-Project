@@ -6,8 +6,8 @@ function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
 
     // use parent to get div id
-    var id = $(this).closest('div.pane').attr('id');
-    console.log(id);
+    // var id = $(this).closest('div.pane').attr('id');
+    // console.log(id);
     // use div id to identify corresponding array
     // for (let i = 0; i < sem.length; i++) {
     //     if (sem[i].code == ev.target.id) {
@@ -22,13 +22,15 @@ function drop(ev, sem) {
     console.log("data :" + data);
     ev.target.appendChild(document.getElementById(data));
 
-    for (let i = 0; i < 8; i++) {
-        for (let j = 0; j < sem.length; j++) {
-            if (sem[i].code == ev.target.id) {
-                sem.pop(sem[i]);
-            }
-        }
-    }
+    // document.getElementById(data).style.backgroundColor = color(document.getElementById(data).areas);
+
+    // for (let i = 0; i < 8; i++) {
+    //     for (let j = 0; j < sem.length; j++) {
+    //         if (sem[i].code == ev.target.id) {
+    //             sem.pop(sem[i]);
+    //         }
+    //     }
+    // }
 
     // switch(sem) {
     //     case("fall1") : fall1.push(data); break;
