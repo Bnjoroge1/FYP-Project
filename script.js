@@ -144,3 +144,10 @@ function color(areas) {
 function deleteCourse(id) {
     document.getElementById(id).style.display = "none";
 }
+
+function getCreditsTotal() {
+    let sum = 0;
+    sum += calculateCredits(fall1) + calculateCredits(spring1) + calculateCredits(fall2) + calculateCredits(spring2) + 
+      calculateCredits(fall3) + calculateCredits(spring3) + calculateCredits(fall4) + calculateCredits(fall4);
+    return sum;
+}
