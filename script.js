@@ -17,16 +17,16 @@ function drop(ev) {
     // if semester's new credit total > allowance based on ksas / wse, display warning
 }
 
-// let fall1 = {};
-// let spring1 = {};
-// let fall2 = {};
-// let spring2 = {};
-// let fall3 = {};
-// let spring3 = {};
-// let fall4 = {};
-// let spring4 = {};
+let fall1 = {};
+let spring1 = {};
+let fall2 = {};
+let spring2 = {};
+let fall3 = {};
+let spring3 = {};
+let fall4 = {};
+let spring4 = {};
 
-// document.getElementById("fall1").innerHTML =
+// document.getElementById("fall + ").innerHTML =
         //     `<div class="card drag" id="drag6" draggable="true" ondragstart="drag(event)">
         //         <button class="delete is-small" id="delete6" onclick="deleteCourse(6);"></button>
         //         <div class="card-content">
@@ -40,8 +40,38 @@ function drop(ev) {
     // calculate semester's new credit total & total credit total
 // assigns color based on areas, also checks major req based on areas
 
+// onclick="addCourse(val.OfferingName, val.Title, val.Credits);"
+
+function addCourse(code, title, credits) {
+    let digit = parseInt(code.substring(code.length - 3));
+    let year = 0;
+    if (digit < 200) {
+        // freshman
+        year = 1;
+    } else if (digit < 300) {
+        // sophomore
+        year = 2;
+    } else if (digit < 400) {
+        // junior
+        year = 3;
+    } else {
+        // senior
+        year = 4;
+    }
+
+    document.getElementById("fall" + year).innerHTML +=
+            `<div class="card drag" id="${code}" draggable="true" ondragstart="drag(event)">
+                <button class="delete is-small" id="${code}" onclick="deleteCourse(${code});"></button>
+                <div class="card-content">
+                    ${code}<br>
+                    ${title} (${credits})
+                </div>
+            </div>`;
+}
+
 function color() {
-    let areas = ['H', 'S'];
+    // stored as "EN"
+    let areas = ['Q', 'N'];
     let r = 0;
     let g = 0;
     let b = 0;
@@ -79,12 +109,12 @@ function color() {
 
     if (areas.includes('Q')) { // purple
         if (r != 0) {
-            r = (r + 194) / 2;
-            g = (g + 112) / 2;
+            r = (r + 205) / 2;
+            g = (g + 161) / 2;
             b = (b + 255) / 2;
         } else {
-            r = 194;
-            g = 112;
+            r = 205;
+            g = 161;
             b = 255;
         }
     }
@@ -101,10 +131,9 @@ function color() {
         }
     }
 
-    // document.getElementById("drag1").style.color = "white";
     document.getElementById("drag1").style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
 }
 
 function deleteCourse(id) {
-    document.getElementById("drag" + id).style.display = "none";
+    document.getElementById(id).style.display = "none";
 }

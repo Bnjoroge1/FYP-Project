@@ -20,29 +20,15 @@
             <h3 class="title is-3 fyp">Four Year Plan</h3>
         </div>
 
-        <div class="container" style="padding:50px 250px;">
-            <h1>Live Search</h1>
+        <div class="field is-grouped">
             <form role="form">
                 <div class="form-group">
-                    <input type="input" class="form-control input-lg" id="txt-search"
-                        placeholder="Type your search character">
+                    <p class="control is-expanded" id="searchbar">
+                        <input class="input" id="txt-search" type="input" placeholder="Search For A Course">
+                    </p>
+                    <div id="filter-records"></div> <!-- style="overflow: scroll;" -->
                 </div>
             </form>
-            <div id="filter-records"></div>
-        </div>
-
-        <div class="navbar-end">
-            <div class="navbar-item">
-                <div class="buttons">
-                    <a class="button is-info">
-                        <strong>Sign Up</strong>
-                    </a>
-                    <a class="button is-light">
-                        <strong>Log In</strong>
-                    </a>
-                </div>
-            </div>
-        </div>
         </div>
     </nav>
 
@@ -160,14 +146,6 @@
     </script>
 
     <script type="text/javascript">
-        $(document).ready(function () {
-            /*var myjson;
-            $.getJSON("https://sis.jhu.edu/api/classes?key=JjHPAfkaB7SZpfX6MnQIXXHMGARAHR8x&School=Whiting%20School%20of%20Engineering&Term=Fall%202021&Term=Spring%202021", function(json){
-            myjson = json;
-            */
-        });
-
-
         $('#txt-search').keyup(function () {
             var searchField = $(this).val();
             if (searchField === '') {
@@ -175,24 +153,25 @@
                 return;
             }
 
+            let code, title, credits, year;
+
             var regex = new RegExp(searchField, "i");
             var output = '<div class="row">';
-            var count = 1;
+
             $.each(data, function (key, val) {
                 if ((val.OfferingName.search(regex) != -1) || (val.Title.search(regex) != -1)) {
-                    output += '<h5>' + val.OfferingName + '</h5>';
-                    output += '<p>' + val.Title + '</p>'
-                    output += '</div>';
-                    output += '</div>';
-                    if (count % 2 == 0) {
-                        output += '</div><div class="row">'
-                    }
-                    count++;
+                    code = val.OfferingName;
+                    code = code.substring(0, 2) + code.substring(3, 6) + code.substring(7);
+                    
+                    output += '<h5 class="title is-6" onclick="addCourse(\'' + val.OfferingName + '\',\'' + val.Title + '\',\'' + val.Credits + '\');">' + val.OfferingName + '</h5>';
+                    output += '<p class=\"subtitle is-6\">' + val.Title + " (" + val.Credits + ")" + '</p>';
                 }
             });
             output += '</div>';
             $('#filter-records').html(output);
         });
+
+        
     </script>
 </body>
 

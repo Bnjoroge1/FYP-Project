@@ -3,6 +3,11 @@
     padding-left: 50px;
 }
 
+#searchbar {
+    width: 500px !important;
+    padding: 10px;
+}
+
 .sem {
     height: 450px;
     padding: 10px;
@@ -14,8 +19,8 @@
 }
 
 .drag {
-    height: 55px;
-    font-size: 12px;
+    /* height: 55px; */
+    font-size: 10px;
 }
 
 .card-content {
