@@ -69,6 +69,8 @@ function addCourse(code, title, credits, areas) {
             </div>`;
     
     document.getElementById(code).style.backgroundColor = color(areas);
+    document.getElementById("filter-records").innerHTML = '';
+    document.getElementById("txt-search").value = '';
 }
 
 function color(areas) {
