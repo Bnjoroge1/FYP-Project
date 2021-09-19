@@ -49,11 +49,11 @@ function drop(ev, sem) {
     // if semester's new credit total > allowance based on ksas / wse, display warning
 }
 
-let fall1 = [];
-let spring1 = [];
-let fall2 = [];
-let spring2 = [];
-let fall3 = [];
+let fall1 = [{"code" : "EN500112", "title" : "Gateway Computing: JAVA", "credits" : 3, "areas" : "E", "sem" : "fall1"}, {"code" : "EN601104", "title" : "Computer Ethics", "credits" : 1, "areas" : "H", "sem" : "fall1"}];
+let spring1 = [{"code" : "EN601220", "title" : "Intermediate Programming", "credits" : 4, "areas" : "E", "sem" : "spring1"}];
+let fall2 = [{"code" : "EN601226", "title" : "Data Structures", "credits" : 4, "areas" : "E", "sem" : "fall2"},{"code" : "EN601230", "title" : "Mathematical Foundations for CS", "credits" : 4, "areas" : "Q", "sem" : "spring2"}];
+let spring2 = [{"code" : "EN601229", "title" : "Computer System Fundamentals", "credits" : 3, "areas" : "E", "sem" : "fall3"}];
+let fall3 = [{"code" : "EN601443", "title" : "Intro to Algorithms", "credits" : 3, "areas" : "E", "sem" : "fall4"}];
 let spring3 = [];
 let fall4 = [];
 let spring4 = [];
